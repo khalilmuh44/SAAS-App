@@ -104,7 +104,7 @@ def fetch_store_page(url):
         "brand_assets": brand_assets
     }
 
-def generate_saas_plan(store_name, store_url, niche, budget, country):
+def generate_media_plan(store_name, store_url, niche, budget, country):
     
     store_data = fetch_store_page(store_url)
 
