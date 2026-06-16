@@ -1,5 +1,5 @@
 import streamlit as st
-from media_plan import generate_media_plan
+from business_app import generate_media_plan
 
 st.set_page_config(
     page_title="Rabhan Growth",
