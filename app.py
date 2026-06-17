@@ -88,6 +88,24 @@ div.stButton > button {
     padding: 14px 22px;
     font-weight: 700;
 }
+            
+
+.hero-video-wrap {
+    width: 100%;
+    max-width: 850px;
+    margin: 20px auto;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.hero-video {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    object-position: right center;
+    display: block;
+}            
 </style>
 """, unsafe_allow_html=True)
 
