@@ -149,7 +149,7 @@ def autoplay_video(video_path: str):
         st.markdown(
             f"""
             <div class="hero-video-wrap">
-                <video autoplay  loop playsinline class="hero-video">
+                <video autoplay   playsinline class="hero-video">
                     <source src="data:video/mp4;base64,{video_base64}" type="video/mp4">
                 </video>
             </div>
