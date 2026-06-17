@@ -6,7 +6,7 @@ import pandas as pd
 
 from business_app import generate_media_plan
 from openai import OpenAI
-
+import base64
 
 # ==============================
 # Page Config / إعدادات الصفحة
@@ -16,6 +16,65 @@ st.set_page_config(
     layout="wide",
     page_icon="🚀"
 )
+
+
+.stApp {
+    background: linear-gradient(135deg, #f8fbff 0%, #eef6ff 55%, #ffffff 100%);
+}
+
+.hero-video-wrap {
+    width: 100%;
+    max-width: 980px;
+    margin: 30px auto 24px auto;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.16);
+    border: 1px solid rgba(255,255,255,0.7);
+}
+
+.hero-video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 44px;
+    font-weight: 900;
+    color: #111827;
+    margin-top: 18px;
+}
+
+.sub-title {
+    text-align: center;
+    font-size: 18px;
+    color: #4b5563;
+    margin-bottom: 45px;
+}
+
+.card {
+    background: rgba(255,255,255,0.92);
+    padding: 28px;
+    border-radius: 24px;
+    box-shadow: 0 16px 45px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(226,232,240,0.9);
+    min-height: 145px;
+}
+
+.card h3 {
+    color: #111827;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
 
 
 # ==============================
@@ -71,7 +130,27 @@ with col2:
     # Logo Image / صورة اللوجو
     # Make sure img.png exists in the same folder / تأكد أن img.png موجودة بجانب app.py
     # st.image("img.png", use_container_width=True)
-    st.video("video.mp4")
+    # st.video("video.mp4")
+    autoplay_video("assets/hero.mp4")
+
+    def autoplay_video(video_path: str):
+        if os.path.exists(video_path):
+            with open(video_path, "rb") as video_file:
+                video_bytes = video_file.read()
+                video_base64 = base64.b64encode(video_bytes).decode()
+
+            st.markdown(
+                f"""
+                <div class="hero-video-wrap">
+                    <video autoplay muted loop playsinline class="hero-video">
+                        <source src="data:video/mp4;base64,{video_base64}" type="video/mp4">
+                    </video>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+        else:
+            st.warning("Hero video not found.")
 
 st.markdown('<div class="main-title">AI Business Growth Platform</div>', unsafe_allow_html=True)
 st.markdown(
