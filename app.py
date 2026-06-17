@@ -70,7 +70,8 @@ col1, col2, col3 = st.columns([1, 1.3, 1])
 with col2:
     # Logo Image / صورة اللوجو
     # Make sure img.png exists in the same folder / تأكد أن img.png موجودة بجانب app.py
-    st.image("img.png", use_container_width=True)
+    # st.image("img.png", use_container_width=True)
+    st.video("video.mp4")
 
 st.markdown('<div class="main-title">AI Business Growth Platform</div>', unsafe_allow_html=True)
 st.markdown(
