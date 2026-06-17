@@ -91,21 +91,43 @@ div.stButton > button {
             
 
 .hero-video-wrap {
-    width: 100%;
-    max-width: 850px;
-    margin: 20px auto;
-    border-radius: 24px;
+    width: min(100%, 1100px);
+    margin: 28px auto 26px auto;
+    border-radius: 28px;
     overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.16);
+    background: #ffffff;
 }
 
 .hero-video {
     width: 100%;
-    height: 420px;
+    height: 430px;
     object-fit: cover;
-    object-position: right center;
+    object-position: center;
     display: block;
-}            
+}
+
+@media (max-width: 768px) {
+    .hero-video-wrap {
+        width: 100%;
+        border-radius: 18px;
+        margin: 15px auto 20px auto;
+    }
+
+    .hero-video {
+        height: 220px;
+        object-position: center;
+    }
+
+    .main-title {
+        font-size: 30px !important;
+    }
+
+    .sub-title {
+        font-size: 14px !important;
+        padding: 0 12px;
+    }
+}          
 </style>
 """, unsafe_allow_html=True)
 
@@ -127,7 +149,7 @@ def autoplay_video(video_path: str):
         st.markdown(
             f"""
             <div class="hero-video-wrap">
-                <video autoplay muted loop playsinline class="hero-video">
+                <video autoplay  loop playsinline class="hero-video">
                     <source src="data:video/mp4;base64,{video_base64}" type="video/mp4">
                 </video>
             </div>
@@ -141,7 +163,7 @@ def autoplay_video(video_path: str):
 # ==============================
 # Header / مقدمة التطبيق
 # ==============================
-col1, col2, col3 = st.columns([1, 1.8, 1])
+col1, col2, col3 = st.columns([0.3, 3, 0.3])
 
 with col2:
     autoplay_video("assets/hero.mp4")
