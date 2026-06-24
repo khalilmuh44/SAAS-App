@@ -552,30 +552,30 @@ elif module == "Media Plan":
             st.success("Media Plan generated successfully!")
 
             # Report preview tabs / تبويبات عرض التقرير
-            
-            report_view = st.radio(
-                "Report View",
-                ["Formatted Report", "Raw Markdown", "Download"],
-                horizontal=True
+            tab1, tab2, tab3 = st.tabs([
+            "Formatted Report",
+            "Raw Markdown",
+            "Download"
+        ])
+
+        with tab1:
+            st.components.v1.html(
+                html_report,
+                height=5000,
+                scrolling=True
             )
 
-            if report_view == "Formatted Report":
-                st.components.v1.html(
-                    html_report,
-                    height=5000,
-                    scrolling=True
-                )
+        with tab2:
+            st.markdown(markdown_report)
 
-            elif report_view == "Raw Markdown":
-                st.markdown(markdown_report)
-
-            elif report_view == "Download":
-                st.download_button(
-                    label="Download HTML Report",
-                    data=html_report,
-                    file_name=f"{brand_name}_Media_Plan.html",
-                    mime="text/html"
-                )
+        with tab3:
+            st.download_button(
+                label="Download HTML Report",
+                data=html_report,
+                file_name=f"{brand_name}_Media_Plan.html",
+                mime="text/html"
+            )
+            
 
 
 # ==============================
