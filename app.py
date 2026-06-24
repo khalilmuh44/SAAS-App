@@ -29,31 +29,31 @@ st.set_page_config(
 #                                        video Edit 
 #######################################################################
 
-# def autoplay_video(video_path):
+def autoplay_video(video_path):
 
-#     if os.path.exists(video_path):
+    if os.path.exists(video_path):
 
-#         with open(video_path, "rb") as video_file:
+        with open(video_path, "rb") as video_file:
 
-#             video_bytes = video_file.read()
+            video_bytes = video_file.read()
 
-#             video_base64 = base64.b64encode(
-#                 video_bytes
-#             ).decode()
+            video_base64 = base64.b64encode(
+                video_bytes
+            ).decode()
 
-#         st.markdown(
-#             f"""
-#             <div class="hero-video-wrap">
-#                 <video autoplay muted loop playsinline class="hero-video">
-#                     <source src="data:video/mp4;base64,{video_base64}" type="video/mp4">
-#                 </video>
-#             </div>
-#             """,
-#             unsafe_allow_html=True
-#         )
+        st.markdown(
+            f"""
+            <div class="hero-video-wrap">
+                <video autoplay muted loop playsinline class="hero-video">
+                    <source src="data:video/mp4;base64,{video_base64}" type="video/mp4">
+                </video>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
-#     else:
-#         st.warning("Hero video not found.")
+    else:
+        st.warning("Hero video not found.")
 
 
 
