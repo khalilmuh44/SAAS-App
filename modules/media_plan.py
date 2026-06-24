@@ -422,6 +422,8 @@ Requirements
 Use tables whenever possible.
 
 Output in Markdown.
+Do NOT wrap the report inside ```markdown``` code blocks.
+Return pure markdown only.
 """
 
 ##############################################################

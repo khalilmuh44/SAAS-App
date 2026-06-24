@@ -60,16 +60,22 @@ def autoplay_video(video_path):
 #########################################################################
 #                               Custom CSS / تعديل شكل Streamlit
 #########################################################################
-
 st.markdown("""
 <style>
 
-/* App Background */
+/* ==============================
+   1) App Background
+   خلفية التطبيق بالكامل
+   ============================== */
 .stApp {
     background: linear-gradient(135deg, #F8FAFC 0%, #EEF6FF 55%, #FFFFFF 100%);
 }
 
-/* Main Titles */
+
+/* ==============================
+   2) Main Titles
+   العنوان الرئيسي والوصف تحت الهيدر
+   ============================== */
 .main-title {
     text-align: center;
     font-size: 44px;
@@ -92,7 +98,11 @@ st.markdown("""
     margin: 20px 0 28px 0;
 }
 
-/* Cards */
+
+/* ==============================
+   3) Cards
+   شكل الكروت داخل الداشبورد
+   ============================== */
 .card {
     background: #FFFFFF;
     padding: 26px;
@@ -109,14 +119,22 @@ st.markdown("""
     color: #4B5563;
 }
 
-/* Main Form Labels */
+
+/* ==============================
+   4) Main Form Labels
+   أسماء الخانات فوق Inputs في الصفحة الرئيسية
+   ============================== */
 main div[data-testid="stWidgetLabel"] p {
     color: #111827 !important;
     font-weight: 700 !important;
     font-size: 15px !important;
 }
 
-/* Main Form Inputs */
+
+/* ==============================
+   5) Main Form Inputs
+   شكل خانات الإدخال في الصفحة الرئيسية
+   ============================== */
 main .stTextInput input,
 main .stNumberInput input,
 main .stTextArea textarea,
@@ -127,16 +145,25 @@ main div[data-baseweb="select"] > div {
     border-radius: 14px !important;
 }
 
+
+/* Placeholder text
+   لون النص الافتراضي داخل الخانات */
 main .stTextInput input::placeholder,
 main .stTextArea textarea::placeholder {
     color: #6B7280 !important;
     opacity: 1 !important;
 }
 
+
+/* Selectbox text
+   لون النص داخل الاختيارات */
 main div[data-baseweb="select"] span {
     color: #111827 !important;
 }
 
+
+/* Disabled inputs
+   شكل الخانات المقفولة مثل Target Country */
 main .stTextInput input:disabled {
     background-color: #F3F4F6 !important;
     color: #374151 !important;
@@ -144,7 +171,11 @@ main .stTextInput input:disabled {
     opacity: 1 !important;
 }
 
-/* Buttons */
+
+/* ==============================
+   6) Main Buttons
+   شكل الأزرار الرئيسية مثل Generate Media Plan
+   ============================== */
 div.stButton > button {
     background: linear-gradient(
         90deg,
@@ -161,12 +192,19 @@ div.stButton > button {
     box-shadow: 0 12px 28px rgba(21, 101, 245, 0.18);
 }
 
+
+/* Button hover
+   شكل الزر عند الوقوف عليه */
 div.stButton > button:hover {
     transform: translateY(-1px);
     box-shadow: 0 16px 34px rgba(21, 101, 245, 0.24);
 }
 
-/* Hero Video */
+
+/* ==============================
+   7) Hero Video
+   شكل فيديو الهيدر
+   ============================== */
 .hero-video-wrap {
     width: min(100%, 1100px);
     margin: 28px auto 26px auto;
@@ -184,8 +222,13 @@ div.stButton > button:hover {
     object-position: center;
     display: block;
 }
-#-----
-/* Tabs */
+
+
+/* ==============================
+   8) Tabs
+   تبويبات عرض التقرير:
+   Formatted Report / Raw Markdown / Download
+   ============================== */
 main button[data-baseweb="tab"],
 main button[data-baseweb="tab"] *,
 main div[data-baseweb="tab-list"] button,
@@ -195,6 +238,9 @@ main div[data-baseweb="tab-list"] button * {
     font-weight: 600 !important;
 }
 
+
+/* Active tab
+   التاب المختارة */
 main button[data-baseweb="tab"][aria-selected="true"],
 main button[data-baseweb="tab"][aria-selected="true"] *,
 main div[data-baseweb="tab-list"] button[aria-selected="true"],
@@ -203,6 +249,9 @@ main div[data-baseweb="tab-list"] button[aria-selected="true"] * {
     font-weight: 700 !important;
 }
 
+
+/* Tab hover
+   شكل التاب عند الوقوف عليها */
 main button[data-baseweb="tab"]:hover,
 main button[data-baseweb="tab"]:hover *,
 main div[data-baseweb="tab-list"] button:hover,
@@ -210,13 +259,18 @@ main div[data-baseweb="tab-list"] button:hover * {
     color: #1565F5 !important;
 }
 
+
+/* Tab underline
+   الخط تحت التاب المختارة */
 main div[data-baseweb="tab-highlight"] {
     background-color: #FF3D1A !important;
-}            
+}
 
 
-/* Markdown Preview */
-
+/* ==============================
+   9) Markdown Preview
+   تنسيق تبويب Raw Markdown فقط
+   ============================== */
 .markdown-preview,
 .markdown-preview * {
     color: #111827 !important;
@@ -244,17 +298,27 @@ main div[data-baseweb="tab-highlight"] {
     padding: 10px;
 }
 
-/* Alerts */
+
+/* ==============================
+   10) Alerts
+   شكل رسائل success / warning / error
+   ============================== */
 div[data-testid="stAlert"] {
     border-radius: 16px;
 }
 
-/* Sidebar */
+
+/* ==============================
+   11) Sidebar
+   خلفية القائمة الجانبية
+   ============================== */
 section[data-testid="stSidebar"] {
     background: #1F2937 !important;
 }
 
-/* Sidebar title and labels */
+
+/* Sidebar labels and titles
+   ألوان عناوين ونصوص السايدبار */
 section[data-testid="stSidebar"] h1,
 section[data-testid="stSidebar"] h2,
 section[data-testid="stSidebar"] h3,
@@ -264,7 +328,9 @@ section[data-testid="stSidebar"] div[role="radiogroup"] p {
     color: #FFFFFF !important;
 }
 
-/* Sidebar inputs */
+
+/* Sidebar inputs
+   شكل خانات السايدبار */
 section[data-testid="stSidebar"] input,
 section[data-testid="stSidebar"] div[data-baseweb="select"] > div {
     background: #FFFFFF !important;
@@ -272,27 +338,39 @@ section[data-testid="stSidebar"] div[data-baseweb="select"] > div {
     border-radius: 12px !important;
 }
 
+
+/* Sidebar selectbox text
+   لون النص داخل selectbox في السايدبار */
 section[data-testid="stSidebar"] div[data-baseweb="select"] span {
     color: #111827 !important;
 }
 
-/* Sidebar divider */
+
+/* Sidebar divider
+   الخط الفاصل داخل السايدبار */
 section[data-testid="stSidebar"] hr {
     border-color: #374151 !important;
 }
 
-/* Spinner Text */
+
+/* ==============================
+   12) Spinner
+   رسالة التحميل أثناء توليد التقرير
+   ============================== */
 .stSpinner > div {
     color: #1565F5 !important;
     font-weight: 700 !important;
 }
 
-/* Spinner Circle */
 .stSpinner svg {
     stroke: #1565F5 !important;
 }
 
-/* Mobile */
+
+/* ==============================
+   13) Mobile Responsive
+   تحسين العرض على الموبايل
+   ============================== */
 @media (max-width: 768px) {
     .hero-video-wrap {
         width: 100%;
@@ -315,7 +393,10 @@ section[data-testid="stSidebar"] hr {
 }
 
 
-/* Main form labels fix */
+/* ==============================
+   14) Final Main Labels Fix
+   إصلاح نهائي لأسماء الخانات في الصفحة الرئيسية
+   ============================== */
 main label,
 main div[data-testid="stWidgetLabel"],
 main div[data-testid="stWidgetLabel"] *,
@@ -325,7 +406,11 @@ main [data-testid="stWidgetLabel"] p {
     font-weight: 700 !important;
 }
 
-/* Main inputs */
+
+/* ==============================
+   15) Final Main Inputs Fix
+   إصلاح نهائي لألوان النصوص داخل الخانات
+   ============================== */
 main input,
 main textarea {
     background-color: #FFFFFF !important;
@@ -333,12 +418,21 @@ main textarea {
     -webkit-text-fill-color: #111827 !important;
 }
 
-/* Disabled input */
+
+/* Disabled input final fix
+   إصلاح نهائي للخانات المقفولة */
 main input:disabled {
     background-color: #F3F4F6 !important;
     color: #374151 !important;
     -webkit-text-fill-color: #374151 !important;
 }
+
+
+/* ==============================
+   16) Global Widget Label Test/Fix
+   يتحكم في أسماء كل الخانات في التطبيق والسايدبار
+   لو خليته أحمر، كل أسماء الخانات هتبقى أحمر
+   ============================== */
 [data-testid="stWidgetLabel"] {
     color: #FF0000 !important;
 }
@@ -347,9 +441,14 @@ main input:disabled {
     color: #FF0000 !important;
     opacity: 1 !important;
     font-weight: 700 !important;
-}                       
+}
+
 </style>
 """, unsafe_allow_html=True)
+
+
+
+
 
 
 #                   ==============================
