@@ -81,11 +81,39 @@ st.markdown("""
    ============================== */
 
 section[data-testid="stSidebar"] {
-    background: #1F2937;
+    background: #1F2937 !important;
 }
 
-section[data-testid="stSidebar"] * {
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] span {
     color: #FFFFFF !important;
+}
+
+/* Sidebar inputs */
+section[data-testid="stSidebar"] input,
+section[data-testid="stSidebar"] div[data-baseweb="select"] > div {
+    background: #111827 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #374151 !important;
+    border-radius: 12px !important;
+}
+
+section[data-testid="stSidebar"] input::placeholder {
+    color: #9CA3AF !important;
+}
+
+/* Sidebar radio text */
+section[data-testid="stSidebar"] div[role="radiogroup"] label p {
+    color: #FFFFFF !important;
+}
+
+/* Sidebar divider */
+section[data-testid="stSidebar"] hr {
+    border-color: #374151 !important;
 }
 
 /* ==============================
@@ -105,6 +133,13 @@ section[data-testid="stSidebar"] * {
     font-size: 18px;
     color: #4B5563;
     margin-bottom: 35px;
+}
+
+.section-title {
+    font-size: 34px;
+    font-weight: 800;
+    color: #1565F5;
+    margin: 20px 0 28px 0;
 }
 
 /* ==============================
@@ -128,43 +163,61 @@ section[data-testid="stSidebar"] * {
 }
 
 /* ==============================
-   Form Labels / أسماء الخانات
+   Main Form Labels / أسماء خانات الفورم الرئيسي
    ============================== */
 
-label,
-.stTextInput label,
-.stTextArea label,
-.stNumberInput label,
-.stSelectbox label {
+div[data-testid="stAppViewContainer"] div[data-testid="stWidgetLabel"] label,
+div[data-testid="stAppViewContainer"] div[data-testid="stWidgetLabel"] p {
     color: #111827 !important;
     font-weight: 700 !important;
     font-size: 15px !important;
 }
 
 /* ==============================
-   Inputs / الخانات
+   Main Form Inputs / خانات الفورم الرئيسي
    ============================== */
 
-input,
-textarea,
-div[data-baseweb="select"] > div {
-    background: #FFFFFF !important;
+div[data-testid="stAppViewContainer"] .stTextInput input,
+div[data-testid="stAppViewContainer"] .stNumberInput input,
+div[data-testid="stAppViewContainer"] .stTextArea textarea,
+div[data-testid="stAppViewContainer"] div[data-baseweb="select"] > div {
+    background-color: #FFFFFF !important;
     color: #111827 !important;
-    border: 1px solid #E5E7EB !important;
+    border: 1px solid #D1D5DB !important;
     border-radius: 14px !important;
 }
 
-input:focus,
-textarea:focus {
+div[data-testid="stAppViewContainer"] .stTextInput input::placeholder,
+div[data-testid="stAppViewContainer"] .stTextArea textarea::placeholder {
+    color: #6B7280 !important;
+    opacity: 1 !important;
+}
+
+div[data-testid="stAppViewContainer"] div[data-baseweb="select"] span,
+div[data-testid="stAppViewContainer"] div[data-baseweb="select"] div {
+    color: #111827 !important;
+}
+
+div[data-testid="stAppViewContainer"] .stTextInput input:disabled {
+    background-color: #F3F4F6 !important;
+    color: #374151 !important;
+    -webkit-text-fill-color: #374151 !important;
+    opacity: 1 !important;
+}
+
+div[data-testid="stAppViewContainer"] .stTextInput input:focus,
+div[data-testid="stAppViewContainer"] .stNumberInput input:focus,
+div[data-testid="stAppViewContainer"] .stTextArea textarea:focus,
+div[data-testid="stAppViewContainer"] div[data-baseweb="select"] > div:focus-within {
     border-color: #1565F5 !important;
     box-shadow: 0 0 0 3px rgba(21, 101, 245, 0.15) !important;
 }
 
-/* Disabled input / الخانات المقفولة */
-input:disabled {
-    background: #F3F4F6 !important;
-    color: #6B7280 !important;
-    opacity: 1 !important;
+/* Number input buttons */
+div[data-testid="stAppViewContainer"] button[kind="secondary"] {
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
+    border: 1px solid #E5E7EB !important;
 }
 
 /* ==============================
@@ -215,6 +268,52 @@ div.stButton > button:hover {
 }
 
 /* ==============================
+   Tabs / ألوان التابات
+   ============================== */
+
+div[data-testid="stAppViewContainer"] button[data-baseweb="tab"] p {
+    color: #111827 !important;
+    font-weight: 700 !important;
+}
+
+div[data-testid="stAppViewContainer"] button[data-baseweb="tab"][aria-selected="true"] p {
+    color: #FF3D1A !important;
+}
+
+div[data-testid="stAppViewContainer"] div[data-baseweb="tab-highlight"] {
+    background-color: #FF3D1A !important;
+}
+
+/* ==============================
+   Markdown Preview فقط داخل الصفحة الرئيسية
+   ============================== */
+
+div[data-testid="stAppViewContainer"] div[data-testid="stMarkdownContainer"],
+div[data-testid="stAppViewContainer"] div[data-testid="stMarkdownContainer"] * {
+    color: #111827 !important;
+}
+
+div[data-testid="stAppViewContainer"] div[data-testid="stMarkdownContainer"] h1,
+div[data-testid="stAppViewContainer"] div[data-testid="stMarkdownContainer"] h2,
+div[data-testid="stAppViewContainer"] div[data-testid="stMarkdownContainer"] h3 {
+    color: #1565F5 !important;
+}
+
+div[data-testid="stAppViewContainer"] div[data-testid="stMarkdownContainer"] table {
+    background: #FFFFFF !important;
+    color: #111827 !important;
+}
+
+div[data-testid="stAppViewContainer"] div[data-testid="stMarkdownContainer"] th {
+    background: #1565F5 !important;
+    color: #FFFFFF !important;
+}
+
+div[data-testid="stAppViewContainer"] div[data-testid="stMarkdownContainer"] td {
+    color: #111827 !important;
+}
+
+/* ==============================
    Alerts / رسائل التنبيه
    ============================== */
 
@@ -247,154 +346,7 @@ div[data-testid="stAlert"] {
         padding: 0 12px;
     }
 }
-/* Force Form Inputs Theme / إجبار شكل خانات الفورم */
-.stTextInput input,
-.stNumberInput input,
-.stTextArea textarea,
-div[data-baseweb="select"] > div {
-    background-color: #FFFFFF !important;
-    color: #111827 !important;
-    border: 1px solid #E5E7EB !important;
-    border-radius: 14px !important;
-}
 
-/* Placeholder / لون النص الافتراضي */
-.stTextInput input::placeholder,
-.stTextArea textarea::placeholder {
-    color: #6B7280 !important;
-    opacity: 1 !important;
-}
-
-/* Labels / أسماء الخانات */
-div[data-testid="stWidgetLabel"] label,
-div[data-testid="stWidgetLabel"] p {
-    color: #111827 !important;
-    font-weight: 700 !important;
-}
-
-/* Selectbox selected text / نص الاختيار */
-div[data-baseweb="select"] span {
-    color: #111827 !important;
-}
-
-/* Disabled inputs / الخانات المقفولة */
-.stTextInput input:disabled {
-    background-color: #F3F4F6 !important;
-    color: #6B7280 !important;
-    opacity: 1 !important;
-}
-            
-
-/* ==============================
-   Final Form Polish / تحسين نهائي للفورم
-   ============================== */
-
-/* Selectbox container */
-div[data-baseweb="select"] > div {
-    background-color: #FFFFFF !important;
-    color: #111827 !important;
-    border: 1px solid #D1D5DB !important;
-    border-radius: 14px !important;
-}
-
-/* Selectbox text */
-div[data-baseweb="select"] span,
-div[data-baseweb="select"] div {
-    color: #111827 !important;
-}
-
-/* Number input buttons + / - */
-button[kind="secondary"] {
-    background-color: #FFFFFF !important;
-    color: #111827 !important;
-    border: 1px solid #E5E7EB !important;
-}
-
-/* Disabled field */
-.stTextInput input:disabled {
-    background-color: #F3F4F6 !important;
-    color: #374151 !important;
-    -webkit-text-fill-color: #374151 !important;
-    opacity: 1 !important;
-}
-
-/* Textarea direction and readability */
-.stTextArea textarea {
-    background-color: #FFFFFF !important;
-    color: #111827 !important;
-    line-height: 1.8 !important;
-}
-
-/* Input borders */
-.stTextInput input,
-.stNumberInput input,
-.stTextArea textarea {
-    border: 1px solid #D1D5DB !important;
-}
-
-/* Focus state */
-.stTextInput input:focus,
-.stNumberInput input:focus,
-.stTextArea textarea:focus,
-div[data-baseweb="select"] > div:focus-within {
-    border-color: #1565F5 !important;
-    box-shadow: 0 0 0 3px rgba(21, 101, 245, 0.15) !important;
-}  
-
-.section-title {
-    font-size: 34px;
-    font-weight: 800;
-    color: #1565F5;
-    margin: 20px 0 28px 0;
-}
-            
-/* ==============================
-   Tabs / ألوان التابات
-   ============================== */
-
-button[data-baseweb="tab"] p {
-    color: #111827 !important;
-    font-weight: 700 !important;
-}
-
-button[data-baseweb="tab"][aria-selected="true"] p {
-    color: #FF3D1A !important;
-}
-
-div[data-baseweb="tab-highlight"] {
-    background-color: #FF3D1A !important;
-}
-
-
-/* ==============================
-   Markdown Preview / عرض الماركداون
-   ============================== */
-
-div[data-testid="stMarkdownContainer"],
-div[data-testid="stMarkdownContainer"] * {
-    color: #111827 !important;
-}
-
-div[data-testid="stMarkdownContainer"] h1,
-div[data-testid="stMarkdownContainer"] h2,
-div[data-testid="stMarkdownContainer"] h3 {
-    color: #1565F5 !important;
-}
-
-div[data-testid="stMarkdownContainer"] table {
-    background: #FFFFFF !important;
-    color: #111827 !important;
-}
-
-div[data-testid="stMarkdownContainer"] th {
-    background: #1565F5 !important;
-    color: #FFFFFF !important;
-}
-
-div[data-testid="stMarkdownContainer"] td {
-    color: #111827 !important;
-}            
-                                  
 </style>
 """, unsafe_allow_html=True)
 
