@@ -339,14 +339,12 @@ main input:disabled {
     color: #374151 !important;
     -webkit-text-fill-color: #374151 !important;
 }
-/* Force Main Form Labels */
-
 [data-testid="stWidgetLabel"] {
-    color: #111827 !important;
+    color: #FF0000 !important;
 }
 
 [data-testid="stWidgetLabel"] * {
-    color: #111827 !important;
+    color: #FF0000 !important;
     opacity: 1 !important;
     font-weight: 700 !important;
 }                       
