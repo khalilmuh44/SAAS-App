@@ -339,7 +339,15 @@ button[kind="secondary"] {
 div[data-baseweb="select"] > div:focus-within {
     border-color: #1565F5 !important;
     box-shadow: 0 0 0 3px rgba(21, 101, 245, 0.15) !important;
-}            
+}  
+
+.section-title {
+    font-size: 34px;
+    font-weight: 800;
+    color: #1565F5;
+    margin: 20px 0 28px 0;
+}
+                                  
 </style>
 """, unsafe_allow_html=True)
 
@@ -481,7 +489,10 @@ if module == "Dashboard":
 elif module == "Media Plan":
 
     # Page title / عنوان الصفحة
-    st.subheader("🎯 Media Plan Generator")
+    st.markdown(
+    '<div class="section-title">🎯 Media Plan Generator</div>',
+    unsafe_allow_html=True
+)
 
     # Split form into two columns / تقسيم الفورم إلى عمودين
     col_a, col_b = st.columns(2)
