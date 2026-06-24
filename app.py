@@ -347,6 +347,53 @@ div[data-baseweb="select"] > div:focus-within {
     color: #1565F5;
     margin: 20px 0 28px 0;
 }
+            
+/* ==============================
+   Tabs / ألوان التابات
+   ============================== */
+
+button[data-baseweb="tab"] p {
+    color: #111827 !important;
+    font-weight: 700 !important;
+}
+
+button[data-baseweb="tab"][aria-selected="true"] p {
+    color: #FF3D1A !important;
+}
+
+div[data-baseweb="tab-highlight"] {
+    background-color: #FF3D1A !important;
+}
+
+
+/* ==============================
+   Markdown Preview / عرض الماركداون
+   ============================== */
+
+div[data-testid="stMarkdownContainer"],
+div[data-testid="stMarkdownContainer"] * {
+    color: #111827 !important;
+}
+
+div[data-testid="stMarkdownContainer"] h1,
+div[data-testid="stMarkdownContainer"] h2,
+div[data-testid="stMarkdownContainer"] h3 {
+    color: #1565F5 !important;
+}
+
+div[data-testid="stMarkdownContainer"] table {
+    background: #FFFFFF !important;
+    color: #111827 !important;
+}
+
+div[data-testid="stMarkdownContainer"] th {
+    background: #1565F5 !important;
+    color: #FFFFFF !important;
+}
+
+div[data-testid="stMarkdownContainer"] td {
+    color: #111827 !important;
+}            
                                   
 </style>
 """, unsafe_allow_html=True)
