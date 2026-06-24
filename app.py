@@ -261,6 +261,16 @@ section[data-testid="stSidebar"] hr {
     }
 }
 
+/* Spinner Text */
+.stSpinner > div {
+    color: #1565F5 !important;
+    font-weight: 700 !important;
+}
+
+/* Spinner Circle */
+.stSpinner svg {
+    stroke: #1565F5 !important;
+}            
 </style>
 """, unsafe_allow_html=True)
 
