@@ -215,25 +215,33 @@ main div[data-baseweb="tab-highlight"] {
 }            
 
 
-#----            
-
 /* Markdown Preview */
-main div[data-testid="stMarkdownContainer"] p,
-main div[data-testid="stMarkdownContainer"] li,
-main div[data-testid="stMarkdownContainer"] td,
-main div[data-testid="stMarkdownContainer"] span {
+
+.markdown-preview,
+.markdown-preview * {
     color: #111827 !important;
 }
 
-main div[data-testid="stMarkdownContainer"] h1,
-main div[data-testid="stMarkdownContainer"] h2,
-main div[data-testid="stMarkdownContainer"] h3 {
+.markdown-preview h1,
+.markdown-preview h2,
+.markdown-preview h3 {
     color: #1565F5 !important;
 }
 
-main div[data-testid="stMarkdownContainer"] th {
+.markdown-preview table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.markdown-preview th {
     background: #1565F5 !important;
     color: #FFFFFF !important;
+    padding: 10px;
+}
+
+.markdown-preview td {
+    color: #111827 !important;
+    padding: 10px;
 }
 
 /* Alerts */
@@ -591,7 +599,14 @@ elif module == "Media Plan":
             )
 
         with tab2:
-            st.markdown(markdown_report)
+            st.markdown(
+            f"""
+            <div class="markdown-preview">
+            {markdown_report}
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
         with tab3:
             st.download_button(
