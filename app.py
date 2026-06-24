@@ -161,6 +161,11 @@ div.stButton > button {
     box-shadow: 0 12px 28px rgba(21, 101, 245, 0.18);
 }
 
+div.stButton > button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 34px rgba(21, 101, 245, 0.24);
+}
+
 /* Hero Video */
 .hero-video-wrap {
     width: min(100%, 1100px);
@@ -182,17 +187,29 @@ div.stButton > button {
 
 /* Tabs */
 main button[data-baseweb="tab"] p {
-    color: #111827 !important;
-    font-weight: 700 !important;
+    color: #374151 !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
 }
 
 main button[data-baseweb="tab"][aria-selected="true"] p {
     color: #FF3D1A !important;
+    font-weight: 700 !important;
+}
+
+main button[data-baseweb="tab"]:hover p {
+    color: #1565F5 !important;
+}
+
+main div[data-baseweb="tab-highlight"] {
+    background-color: #FF3D1A !important;
 }
 
 /* Markdown Preview */
-main div[data-testid="stMarkdownContainer"],
-main div[data-testid="stMarkdownContainer"] * {
+main div[data-testid="stMarkdownContainer"] p,
+main div[data-testid="stMarkdownContainer"] li,
+main div[data-testid="stMarkdownContainer"] td,
+main div[data-testid="stMarkdownContainer"] span {
     color: #111827 !important;
 }
 
@@ -200,6 +217,11 @@ main div[data-testid="stMarkdownContainer"] h1,
 main div[data-testid="stMarkdownContainer"] h2,
 main div[data-testid="stMarkdownContainer"] h3 {
     color: #1565F5 !important;
+}
+
+main div[data-testid="stMarkdownContainer"] th {
+    background: #1565F5 !important;
+    color: #FFFFFF !important;
 }
 
 /* Alerts */
@@ -239,6 +261,17 @@ section[data-testid="stSidebar"] hr {
     border-color: #374151 !important;
 }
 
+/* Spinner Text */
+.stSpinner > div {
+    color: #1565F5 !important;
+    font-weight: 700 !important;
+}
+
+/* Spinner Circle */
+.stSpinner svg {
+    stroke: #1565F5 !important;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
     .hero-video-wrap {
@@ -261,16 +294,6 @@ section[data-testid="stSidebar"] hr {
     }
 }
 
-/* Spinner Text */
-.stSpinner > div {
-    color: #1565F5 !important;
-    font-weight: 700 !important;
-}
-
-/* Spinner Circle */
-.stSpinner svg {
-    stroke: #1565F5 !important;
-}            
 </style>
 """, unsafe_allow_html=True)
 
