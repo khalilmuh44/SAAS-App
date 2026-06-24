@@ -1,16 +1,22 @@
-# ==============================
-# Imports / استدعاء المكتبات
-# ==============================
+#########################################################################
+#                                    Imports
+########################################################################
+
+
 import streamlit as st
 import pandas as pd
 
-from business_app import generate_media_plan
+from modules.media_plan import generate_media_plan
 from openai import OpenAI
 import base64
 import os
-# ==============================
-# Page Config / إعدادات الصفحة
-# ==============================
+
+
+
+##################################################################
+#                   Page Config
+###############################################################
+
 st.set_page_config(
     page_title="AI Business Growth Platform",
     layout="wide",
@@ -19,9 +25,10 @@ st.set_page_config(
 
 
 
-# ==========================================
-#             video Edit 
-# =========================================
+########################################################################
+#                                        video Edit 
+#######################################################################
+
 def autoplay_video(video_path):
 
     if os.path.exists(video_path):
@@ -48,9 +55,12 @@ def autoplay_video(video_path):
     else:
         st.warning("Hero video not found.")
 
-# ==============================
-# Custom CSS / تعديل شكل Streamlit
-# ==============================
+
+
+#########################################################################
+#                               Custom CSS / تعديل شكل Streamlit
+#########################################################################
+
 st.markdown("""
 <style>
 .stApp {
@@ -132,37 +142,13 @@ div.stButton > button {
 """, unsafe_allow_html=True)
 
 
-# ==============================
-# Hero Video Function / دالة تشغيل فيديو المقدمة
-# ==============================
-def autoplay_video(video_path: str):
-    """
-    Show autoplay muted loop hero video.
-    عرض فيديو المقدمة بشكل تلقائي وبدون صوت ومتكرر.
-    """
-
-    if os.path.exists(video_path):
-        with open(video_path, "rb") as video_file:
-            video_bytes = video_file.read()
-            video_base64 = base64.b64encode(video_bytes).decode()
-
-        st.markdown(
-            f"""
-            <div class="hero-video-wrap">
-                <video autoplay   playsinline class="hero-video">
-                    <source src="data:video/mp4;base64,{video_base64}" type="video/mp4">
-                </video>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-    else:
-        st.warning("Hero video not found. Please upload assets/hero.mp4")
 
 
-# ==============================
-# Header / مقدمة التطبيق
-# ==============================
+
+#                   ==============================
+#                   Header / مقدمة التطبيق
+#                   ==============================
+
 col1, col2, col3 = st.columns([0.3, 3, 0.3])
 
 with col2:
@@ -178,30 +164,66 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# ==============================
-# Sidebar Settings / إعدادات جانبية عامة
-# ==============================
+
+#############################################################################
+#                      Sidebar Settings / إعدادات التقرير الجانبية
+###########################################################################
+
+
+# Sidebar title / عنوان القائمة الجانبية
 st.sidebar.title("⚙️ Report Settings")
 
+# Agency name shown in report header and footer
+# اسم الشركة الذي سيظهر في الهيدر والفوتر داخل التقرير
 agency_name = st.sidebar.text_input(
     "Agency / Company Name",
-    value="Your Agency"
+    value="Ameen"
 )
 
-report_primary_color = st.sidebar.color_picker(
-    "Report Primary Color",
-    "#0066FF"
-)
-
+# Report language option
+# اختيار لغة التقرير
 report_language = st.sidebar.selectbox(
-    "Report Language",
-    ["Arabic - Saudi", "English"]
+    "Report Language / لغة التقرير",
+    [
+        "Arabic",
+        "English"
+    ]
+)
+
+st.sidebar.divider()
+
+# Report background color
+# لون خلفية التقرير
+report_bg_color = st.sidebar.color_picker(
+    "Report Background Color / لون خلفية التقرير",
+    "#3B4757"
+)
+
+# Main report text color
+# لون النص الأساسي في التقرير
+report_text_color = st.sidebar.color_picker(
+    "Main Text Color / لون النص الأساسي",
+    "#FFFFFF"
+)
+
+# Secondary text color for headings or highlighted text
+# لون النص الثانوي للعناوين أو النصوص المميزة
+report_secondary_text_color = st.sidebar.color_picker(
+    "Secondary Text Color / لون النص الثانوي",
+    "#FEC000"
+)
+
+# Accent color for icons, borders, buttons and visual highlights
+# لون العناصر المميزة مثل الأيقونات والحدود والأزرار
+report_accent_color = st.sidebar.color_picker(
+    "Accent / Icons Color / لون الأيقونات والعناصر",
+    "#FE5500"
 )
 
 
-# ==============================
-# Main Navigation / اختيار نوع الأداة
-# ==============================
+##################################################################
+#                              Main Navigation / اختيار نوع الأداة
+####################################################                     
 module = st.sidebar.radio(
     "Choose Module",
     [
@@ -218,99 +240,150 @@ module = st.sidebar.radio(
 )
 
 
+
+
+######################################################################
+# Module Router / توجيه الموديولات
+#########################################################################
+
+
+
+# Active modules / الموديولات المفعلة حاليًا
+active_modules = {
+    "Media Plan": generate_media_plan
+}
+
+# Coming soon modules / الموديولات التي ما زالت قيد التطوير
+coming_soon_modules = [
+    "SEO Plan",
+    "Marketing Plan",
+    "Content Plan",
+    "Financial Plan",
+    "Predictions",
+    "Competitor Analysis",
+    "Data Analysis"
+]
+
+
 # ==============================
 # Dashboard / الصفحة الرئيسية
 # ==============================
 if module == "Dashboard":
-    st.subheader("🚀 What can this platform do?")
-
-    c1, c2, c3 = st.columns(3)
-
-    with c1:
-        st.markdown("""
-        <div class="card">
-        <h3>🔎 SEO Plan</h3>
-        <p>Analyze website SEO and suggest keyword, content and technical improvements.</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    with c2:
-        st.markdown("""
-        <div class="card">
-        <h3>🎯 Media Plan</h3>
-        <p>Create paid media strategy, platform allocation, funnel and retargeting plan.</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    with c3:
-        st.markdown("""
-        <div class="card">
-        <h3>📊 Data Analysis</h3>
-        <p>Upload CSV or Excel files and get insights, sales funnel recommendations and growth actions.</p>
-        </div>
-        """, unsafe_allow_html=True)
-
     st.info("Choose a module from the sidebar to start.")
 
 
-# ==============================
-# Website-Based Reports / تقارير مبنية على موقع المتجر
-# ==============================
-if module in [
-    "SEO Plan",
-    "Marketing Plan",
-    "Media Plan",
-    "Content Plan",
-    "Financial Plan",
-    "Predictions",
-    "Competitor Analysis"
-]:
+#######################################################################
+# Media Plan Module / موديول الميديا بلان
+#########################################################################
 
-    st.subheader(f"📌 {module}")
 
+elif module == "Media Plan":
+
+    # Page title / عنوان الصفحة
+    st.subheader("🎯 Media Plan Generator")
+
+    # Split form into two columns / تقسيم الفورم إلى عمودين
     col_a, col_b = st.columns(2)
 
     with col_a:
-        store_name = st.text_input("Store / Business Name")
-        store_url = st.text_input("Store URL")
-        niche = st.text_input("Business Niche")
+        # Brand name / اسم العلامة التجارية
+        brand_name = st.text_input(
+            "Brand Name / اسم العلامة التجارية",
+            placeholder="Example: Ameen Store"
+        )
+
+        # Brand website URL / رابط الموقع
+        brand_url = st.text_input(
+            "Brand Website URL / رابط موقع العلامة التجارية",
+            placeholder="https://example.com"
+        )
 
     with col_b:
-        budget = st.text_input("Monthly Budget", value="10000 SAR")
-        country = st.selectbox(
-            "Target Country",
-            ["Saudi Arabia", "UAE", "Qatar", "Kuwait", "Egypt", "Other"]
-        )
-        main_goal = st.selectbox(
-            "Main Goal",
-            [
-                "Increase Sales",
-                "Improve Conversion Rate",
-                "Improve SEO",
-                "Launch Paid Ads",
-                "Content Growth",
-                "Competitor Analysis",
-                "Full Growth Strategy"
-            ]
+        # Starting budget as number only / الميزانية رقم فقط
+        starting_budget = st.number_input(
+            "Starting Budget (SAR) / الميزانية المبدئية",
+            min_value=100,
+            value=10000,
+            step=500
         )
 
-    generate = st.button(f"Generate {module}", use_container_width=True)
+        # Fixed target country / السوق المستهدف ثابت حاليًا
+        country = "Saudi Arabia"
+
+        st.text_input(
+            "Target Country / السوق المستهدف",
+            value=country,
+            disabled=True
+        )
+
+    # Business problem / المشكلة الأساسية للبيزنس
+    business_problem = st.text_area(
+        "Business Problem / المشكلة الأساسية التي يعاني منها البيزنس",
+        placeholder=(
+            "مثال: المتجر يحصل على زيارات كثيرة لكن المبيعات ضعيفة، "
+            "أو تكلفة الشراء عالية، أو العملاء يضيفون للسلة ولا يكملون الدفع..."
+        ),
+        height=180
+    )
+
+    # Media buying focus / تركيز الخطة الإعلانية
+    main_goal = st.selectbox(
+        "Media Buying Focus / تركيز الخطة الإعلانية",
+        [
+            "Increase Sales",
+            "Improve Conversion Rate",
+            "Reduce Cost Per Purchase",
+            "Improve Retargeting",
+            "Increase Average Order Value",
+            "Launch Paid Ads From Scratch",
+            "Full Media Strategy"
+        ]
+    )
+
+    # Generate button / زر إنشاء التقرير
+    generate = st.button(
+        "Generate Media Plan",
+        use_container_width=True
+    )
 
     if generate:
-        if not store_name or not store_url or not niche or not budget:
-            st.error("Please fill all fields.")
+
+        # Validate required fields / التأكد من البيانات المطلوبة
+        if not brand_name or not brand_url or not business_problem:
+            st.error(
+                "Please fill Brand Name, Brand URL, and Business Problem."
+            )
+
         else:
-            with st.spinner("Analyzing store and generating report..."):
-                html_report, markdown_report = generate_media_plan(
-                    store_name=store_name,
-                    store_url=store_url,
-                    niche=niche,
-                    budget=budget,
-                    country=country
+            # Build report theme from sidebar / بناء شكل التقرير من إعدادات السايدبار
+            report_theme = {
+                "agency_name": agency_name,
+                "bg_color": report_bg_color,
+                "text_color": report_text_color,
+                "secondary_text_color": report_secondary_text_color,
+                "accent_color": report_accent_color,
+            }
+
+            # Get active module function / جلب دالة الموديول المفعّل
+            generator = active_modules[module]
+
+            # Generate report / إنشاء التقرير
+            with st.spinner("Analyzing brand problem and generating media plan..."):
+                html_report, markdown_report = generator(
+                    store_name=brand_name,
+                    store_url=brand_url,
+                    niche="Not specified",
+                    budget=f"{starting_budget} SAR",
+                    country=country,
+                    main_goal=main_goal,
+                    business_problem=business_problem,
+                    report_language=report_language,
+                    report_theme=report_theme
                 )
 
-            st.success("Report generated successfully!")
+            st.success("Media Plan generated successfully!")
 
+            # Report preview tabs / تبويبات عرض التقرير
             tab1, tab2, tab3 = st.tabs([
                 "Formatted Report",
                 "Raw Markdown",
@@ -331,102 +404,29 @@ if module in [
                 st.download_button(
                     label="Download HTML Report",
                     data=html_report,
-                    file_name=f"{store_name}_{module.replace(' ', '_')}.html",
+                    file_name=f"{brand_name}_Media_Plan.html",
                     mime="text/html"
                 )
 
 
 # ==============================
-# Data Analysis Module / قسم تحليل البيانات
+# Coming Soon Modules / موديولات قيد التطوير
 # ==============================
-if module == "Data Analysis":
+elif module in coming_soon_modules:
 
-    st.subheader("📊 Data Analysis & Sales Funnel Recommendations")
-
-    uploaded_file = st.file_uploader(
-        "Upload CSV or Excel File",
-        type=["csv", "xlsx"]
+    st.warning(
+        f"🚧 {module} module is still under development."
     )
 
-    data_goal = st.selectbox(
-        "Analysis Goal",
-        [
-            "Sales Performance Analysis",
-            "Customer Behavior Analysis",
-            "Marketing Funnel Analysis",
-            "Product Performance Analysis",
-            "Revenue Forecast",
-            "Full Business Insights"
-        ]
+    st.info(
+        "Currently, only the Media Plan module is active for testing."
     )
 
-    if uploaded_file:
 
-        # Read uploaded file / قراءة الملف المرفوع
-        if uploaded_file.name.endswith(".csv"):
-            df = pd.read_csv(uploaded_file)
-        else:
-            df = pd.read_excel(uploaded_file)
+# ==============================
+# Unknown Module / موديول غير معروف
+# ==============================
+else:
+    st.error("Unknown module selected.")
 
-        st.success("File uploaded successfully!")
 
-        # Preview data / عرض عينة من البيانات
-        st.write("Data Preview:")
-        st.dataframe(df.head())
-
-        st.write("Basic Summary:")
-        st.write(df.describe(include="all"))
-
-        analyze_data = st.button("Analyze Data with AI", use_container_width=True)
-
-        if analyze_data:
-
-            # Convert sample data to text / تحويل عينة من البيانات لنص
-            data_sample = df.head(50).to_csv(index=False)
-
-            prompt = f"""
-            You are a senior business data analyst and growth consultant.
-
-            Analyze the following business data.
-
-            Goal:
-            {data_goal}
-
-            Data Sample:
-            {data_sample}
-
-            Provide:
-            1. Key insights
-            2. Sales funnel recommendations
-            3. Marketing funnel recommendations
-            4. Customer behavior opportunities
-            5. Revenue improvement ideas
-            6. Suggested KPIs
-            7. Action plan for the next 30 days
-
-            Write in professional Arabic.
-            Use tables where possible.
-            """
-
-            client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
-
-            with st.spinner("Analyzing data with AI..."):
-                response = client.chat.completions.create(
-                    model="gpt-4o",
-                    messages=[
-                        {"role": "user", "content": prompt}
-                    ],
-                    temperature=0.3
-                )
-
-            analysis_result = response.choices[0].message.content
-
-            st.success("Analysis completed!")
-            st.markdown(analysis_result)
-
-            st.download_button(
-                label="Download Data Analysis Report",
-                data=analysis_result,
-                file_name="data_analysis_report.md",
-                mime="text/markdown"
-            )
