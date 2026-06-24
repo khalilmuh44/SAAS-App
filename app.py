@@ -61,52 +61,149 @@ def autoplay_video(video_path):
 #                               Custom CSS / تعديل شكل Streamlit
 #########################################################################
 
+# ==============================
+# App Theme CSS / ثيم التطبيق الأساسي
+# ==============================
+
 st.markdown("""
 <style>
+
+/* ==============================
+   App Background / خلفية التطبيق
+   ============================== */
+
 .stApp {
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 35%, #eef6ff 100%);
+    background: linear-gradient(135deg, #F8FAFC 0%, #EEF6FF 55%, #FFFFFF 100%);
 }
+
+/* ==============================
+   Sidebar / القائمة الجانبية
+   ============================== */
+
+section[data-testid="stSidebar"] {
+    background: #1F2937;
+}
+
+section[data-testid="stSidebar"] * {
+    color: #FFFFFF !important;
+}
+
+/* ==============================
+   Main Titles / العناوين الرئيسية
+   ============================== */
 
 .main-title {
     text-align: center;
-    font-size: 42px;
+    font-size: 44px;
     font-weight: 800;
-    color: #111827;
-    margin-bottom: 5px;
+    color: #1565F5;
+    margin-bottom: 6px;
 }
 
 .sub-title {
     text-align: center;
     font-size: 18px;
-    color: #4b5563;
+    color: #4B5563;
     margin-bottom: 35px;
 }
 
+/* ==============================
+   Cards / الكروت
+   ============================== */
+
 .card {
-    background: white;
-    padding: 25px;
+    background: #FFFFFF;
+    padding: 26px;
     border-radius: 22px;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.07);
-    border: 1px solid #e5e7eb;
+    box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+    border: 1px solid #E5E7EB;
 }
 
-div.stButton > button {
-    background: linear-gradient(90deg, #ff2a00, #00a83b, #0066ff, #ffb000);
-    color: white;
-    border: none;
-    border-radius: 14px;
-    padding: 14px 22px;
-    font-weight: 700;
+.card h3 {
+    color: #1565F5;
 }
-            
+
+.card p {
+    color: #4B5563;
+}
+
+/* ==============================
+   Form Labels / أسماء الخانات
+   ============================== */
+
+label,
+.stTextInput label,
+.stTextArea label,
+.stNumberInput label,
+.stSelectbox label {
+    color: #111827 !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+}
+
+/* ==============================
+   Inputs / الخانات
+   ============================== */
+
+input,
+textarea,
+div[data-baseweb="select"] > div {
+    background: #FFFFFF !important;
+    color: #111827 !important;
+    border: 1px solid #E5E7EB !important;
+    border-radius: 14px !important;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #1565F5 !important;
+    box-shadow: 0 0 0 3px rgba(21, 101, 245, 0.15) !important;
+}
+
+/* Disabled input / الخانات المقفولة */
+input:disabled {
+    background: #F3F4F6 !important;
+    color: #6B7280 !important;
+    opacity: 1 !important;
+}
+
+/* ==============================
+   Buttons / الأزرار
+   ============================== */
+
+div.stButton > button {
+    background: linear-gradient(
+        90deg,
+        #FF3D1A 0%,
+        #78C800 34%,
+        #1565F5 68%,
+        #FFC107 100%
+    ) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 16px !important;
+    padding: 15px 24px !important;
+    font-weight: 800 !important;
+    box-shadow: 0 12px 28px rgba(21, 101, 245, 0.18);
+}
+
+div.stButton > button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 34px rgba(21, 101, 245, 0.24);
+}
+
+/* ==============================
+   Hero Video / فيديو المقدمة
+   ============================== */
 
 .hero-video-wrap {
     width: min(100%, 1100px);
     margin: 28px auto 26px auto;
-    border-radius: 28px;
+    border-radius: 30px;
     overflow: hidden;
     box-shadow: 0 24px 70px rgba(15, 23, 42, 0.16);
-    background: #ffffff;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
 }
 
 .hero-video {
@@ -116,6 +213,18 @@ div.stButton > button {
     object-position: center;
     display: block;
 }
+
+/* ==============================
+   Alerts / رسائل التنبيه
+   ============================== */
+
+div[data-testid="stAlert"] {
+    border-radius: 16px;
+}
+
+/* ==============================
+   Mobile Responsive / موبايل
+   ============================== */
 
 @media (max-width: 768px) {
     .hero-video-wrap {
@@ -137,10 +246,45 @@ div.stButton > button {
         font-size: 14px !important;
         padding: 0 12px;
     }
-}          
+}
+/* Force Form Inputs Theme / إجبار شكل خانات الفورم */
+.stTextInput input,
+.stNumberInput input,
+.stTextArea textarea,
+div[data-baseweb="select"] > div {
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
+    border: 1px solid #E5E7EB !important;
+    border-radius: 14px !important;
+}
+
+/* Placeholder / لون النص الافتراضي */
+.stTextInput input::placeholder,
+.stTextArea textarea::placeholder {
+    color: #6B7280 !important;
+    opacity: 1 !important;
+}
+
+/* Labels / أسماء الخانات */
+div[data-testid="stWidgetLabel"] label,
+div[data-testid="stWidgetLabel"] p {
+    color: #111827 !important;
+    font-weight: 700 !important;
+}
+
+/* Selectbox selected text / نص الاختيار */
+div[data-baseweb="select"] span {
+    color: #111827 !important;
+}
+
+/* Disabled inputs / الخانات المقفولة */
+.stTextInput input:disabled {
+    background-color: #F3F4F6 !important;
+    color: #6B7280 !important;
+    opacity: 1 !important;
+}
 </style>
 """, unsafe_allow_html=True)
-
 
 
 
