@@ -283,6 +283,63 @@ div[data-baseweb="select"] span {
     color: #6B7280 !important;
     opacity: 1 !important;
 }
+            
+
+/* ==============================
+   Final Form Polish / تحسين نهائي للفورم
+   ============================== */
+
+/* Selectbox container */
+div[data-baseweb="select"] > div {
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
+    border: 1px solid #D1D5DB !important;
+    border-radius: 14px !important;
+}
+
+/* Selectbox text */
+div[data-baseweb="select"] span,
+div[data-baseweb="select"] div {
+    color: #111827 !important;
+}
+
+/* Number input buttons + / - */
+button[kind="secondary"] {
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
+    border: 1px solid #E5E7EB !important;
+}
+
+/* Disabled field */
+.stTextInput input:disabled {
+    background-color: #F3F4F6 !important;
+    color: #374151 !important;
+    -webkit-text-fill-color: #374151 !important;
+    opacity: 1 !important;
+}
+
+/* Textarea direction and readability */
+.stTextArea textarea {
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
+    line-height: 1.8 !important;
+}
+
+/* Input borders */
+.stTextInput input,
+.stNumberInput input,
+.stTextArea textarea {
+    border: 1px solid #D1D5DB !important;
+}
+
+/* Focus state */
+.stTextInput input:focus,
+.stNumberInput input:focus,
+.stTextArea textarea:focus,
+div[data-baseweb="select"] > div:focus-within {
+    border-color: #1565F5 !important;
+    box-shadow: 0 0 0 3px rgba(21, 101, 245, 0.15) !important;
+}            
 </style>
 """, unsafe_allow_html=True)
 
