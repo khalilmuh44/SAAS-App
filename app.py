@@ -306,6 +306,31 @@ section[data-testid="stSidebar"] hr {
     }
 }
 
+
+/* Main form labels fix */
+main label,
+main div[data-testid="stWidgetLabel"],
+main div[data-testid="stWidgetLabel"] *,
+main [data-testid="stWidgetLabel"] p {
+    color: #111827 !important;
+    opacity: 1 !important;
+    font-weight: 700 !important;
+}
+
+/* Main inputs */
+main input,
+main textarea {
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+}
+
+/* Disabled input */
+main input:disabled {
+    background-color: #F3F4F6 !important;
+    color: #374151 !important;
+    -webkit-text-fill-color: #374151 !important;
+}            
 </style>
 """, unsafe_allow_html=True)
 
