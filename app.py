@@ -61,72 +61,15 @@ def autoplay_video(video_path):
 #                               Custom CSS / تعديل شكل Streamlit
 #########################################################################
 
-# ==============================
-# App Theme CSS / ثيم التطبيق الأساسي
-# ==============================
-
 st.markdown("""
 <style>
 
-/* ==============================
-   App Background / خلفية التطبيق
-   ============================== */
-
+/* App Background */
 .stApp {
     background: linear-gradient(135deg, #F8FAFC 0%, #EEF6FF 55%, #FFFFFF 100%);
 }
 
-/* ==============================
-   Sidebar / القائمة الجانبية
-   ============================== */
-
-section[data-testid="stSidebar"] {
-    background: #1F2937 !important;
-}
-
-section[data-testid="stSidebar"] h1,
-section[data-testid="stSidebar"] h2,
-section[data-testid="stSidebar"] h3,
-section[data-testid="stSidebar"] p,
-section[data-testid="stSidebar"] label,
-section[data-testid="stSidebar"] span {
-    color: #FFFFFF !important;
-}
-
-
-
-/* Sidebar / القائمة الجانبية */
-section[data-testid="stSidebar"] {
-    background: #1F2937 !important;
-}
-
-section[data-testid="stSidebar"] h1,
-section[data-testid="stSidebar"] h2,
-section[data-testid="stSidebar"] h3,
-section[data-testid="stSidebar"] p,
-section[data-testid="stSidebar"] label,
-section[data-testid="stSidebar"] span {
-    color: #FFFFFF !important;
-}
-
-section[data-testid="stSidebar"] hr {
-    border-color: #374151 !important;
-}
-
-/* Sidebar radio text */
-section[data-testid="stSidebar"] div[role="radiogroup"] label p {
-    color: #FFFFFF !important;
-}
-
-/* Sidebar divider */
-section[data-testid="stSidebar"] hr {
-    border-color: #374151 !important;
-}
-
-/* ==============================
-   Main Titles / العناوين الرئيسية
-   ============================== */
-
+/* Main Titles */
 .main-title {
     text-align: center;
     font-size: 44px;
@@ -149,10 +92,7 @@ section[data-testid="stSidebar"] hr {
     margin: 20px 0 28px 0;
 }
 
-/* ==============================
-   Cards / الكروت
-   ============================== */
-
+/* Cards */
 .card {
     background: #FFFFFF;
     padding: 26px;
@@ -169,68 +109,42 @@ section[data-testid="stSidebar"] hr {
     color: #4B5563;
 }
 
-/* ==============================
-   Main Form Labels / أسماء خانات الفورم الرئيسي
-   ============================== */
-
-div[data-testid="stAppViewContainer"] div[data-testid="stWidgetLabel"] label,
-div[data-testid="stAppViewContainer"] div[data-testid="stWidgetLabel"] p {
+/* Main Form Labels */
+main div[data-testid="stWidgetLabel"] p {
     color: #111827 !important;
     font-weight: 700 !important;
     font-size: 15px !important;
 }
 
-/* ==============================
-   Main Form Inputs / خانات الفورم الرئيسي
-   ============================== */
-
-div[data-testid="stAppViewContainer"] .stTextInput input,
-div[data-testid="stAppViewContainer"] .stNumberInput input,
-div[data-testid="stAppViewContainer"] .stTextArea textarea,
-div[data-testid="stAppViewContainer"] div[data-baseweb="select"] > div {
+/* Main Form Inputs */
+main .stTextInput input,
+main .stNumberInput input,
+main .stTextArea textarea,
+main div[data-baseweb="select"] > div {
     background-color: #FFFFFF !important;
     color: #111827 !important;
     border: 1px solid #D1D5DB !important;
     border-radius: 14px !important;
 }
 
-div[data-testid="stAppViewContainer"] .stTextInput input::placeholder,
-div[data-testid="stAppViewContainer"] .stTextArea textarea::placeholder {
+main .stTextInput input::placeholder,
+main .stTextArea textarea::placeholder {
     color: #6B7280 !important;
     opacity: 1 !important;
 }
 
-div[data-testid="stAppViewContainer"] div[data-baseweb="select"] span,
-div[data-testid="stAppViewContainer"] div[data-baseweb="select"] div {
+main div[data-baseweb="select"] span {
     color: #111827 !important;
 }
 
-div[data-testid="stAppViewContainer"] .stTextInput input:disabled {
+main .stTextInput input:disabled {
     background-color: #F3F4F6 !important;
     color: #374151 !important;
     -webkit-text-fill-color: #374151 !important;
     opacity: 1 !important;
 }
 
-div[data-testid="stAppViewContainer"] .stTextInput input:focus,
-div[data-testid="stAppViewContainer"] .stNumberInput input:focus,
-div[data-testid="stAppViewContainer"] .stTextArea textarea:focus,
-div[data-testid="stAppViewContainer"] div[data-baseweb="select"] > div:focus-within {
-    border-color: #1565F5 !important;
-    box-shadow: 0 0 0 3px rgba(21, 101, 245, 0.15) !important;
-}
-
-/* Number input buttons */
-div[data-testid="stAppViewContainer"] button[kind="secondary"] {
-    background-color: #FFFFFF !important;
-    color: #111827 !important;
-    border: 1px solid #E5E7EB !important;
-}
-
-/* ==============================
-   Buttons / الأزرار
-   ============================== */
-
+/* Buttons */
 div.stButton > button {
     background: linear-gradient(
         90deg,
@@ -247,15 +161,7 @@ div.stButton > button {
     box-shadow: 0 12px 28px rgba(21, 101, 245, 0.18);
 }
 
-div.stButton > button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 16px 34px rgba(21, 101, 245, 0.24);
-}
-
-/* ==============================
-   Hero Video / فيديو المقدمة
-   ============================== */
-
+/* Hero Video */
 .hero-video-wrap {
     width: min(100%, 1100px);
     margin: 28px auto 26px auto;
@@ -274,64 +180,66 @@ div.stButton > button:hover {
     display: block;
 }
 
-/* ==============================
-   Tabs / ألوان التابات
-   ============================== */
-
-div[data-testid="stAppViewContainer"] button[data-baseweb="tab"] p {
+/* Tabs */
+main button[data-baseweb="tab"] p {
     color: #111827 !important;
     font-weight: 700 !important;
 }
 
-div[data-testid="stAppViewContainer"] button[data-baseweb="tab"][aria-selected="true"] p {
+main button[data-baseweb="tab"][aria-selected="true"] p {
     color: #FF3D1A !important;
 }
 
-div[data-testid="stAppViewContainer"] div[data-baseweb="tab-highlight"] {
-    background-color: #FF3D1A !important;
-}
-
-/* ==============================
-   Markdown Preview فقط داخل الصفحة الرئيسية
-   ============================== */
-
-div[data-testid="stAppViewContainer"] div[data-testid="stMarkdownContainer"],
-div[data-testid="stAppViewContainer"] div[data-testid="stMarkdownContainer"] * {
+/* Markdown Preview */
+main div[data-testid="stMarkdownContainer"],
+main div[data-testid="stMarkdownContainer"] * {
     color: #111827 !important;
 }
 
-div[data-testid="stAppViewContainer"] div[data-testid="stMarkdownContainer"] h1,
-div[data-testid="stAppViewContainer"] div[data-testid="stMarkdownContainer"] h2,
-div[data-testid="stAppViewContainer"] div[data-testid="stMarkdownContainer"] h3 {
+main div[data-testid="stMarkdownContainer"] h1,
+main div[data-testid="stMarkdownContainer"] h2,
+main div[data-testid="stMarkdownContainer"] h3 {
     color: #1565F5 !important;
 }
 
-div[data-testid="stAppViewContainer"] div[data-testid="stMarkdownContainer"] table {
-    background: #FFFFFF !important;
-    color: #111827 !important;
-}
-
-div[data-testid="stAppViewContainer"] div[data-testid="stMarkdownContainer"] th {
-    background: #1565F5 !important;
-    color: #FFFFFF !important;
-}
-
-div[data-testid="stAppViewContainer"] div[data-testid="stMarkdownContainer"] td {
-    color: #111827 !important;
-}
-
-/* ==============================
-   Alerts / رسائل التنبيه
-   ============================== */
-
+/* Alerts */
 div[data-testid="stAlert"] {
     border-radius: 16px;
 }
 
-/* ==============================
-   Mobile Responsive / موبايل
-   ============================== */
+/* Sidebar */
+section[data-testid="stSidebar"] {
+    background: #1F2937 !important;
+}
 
+/* Sidebar title and labels */
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] div[data-testid="stWidgetLabel"] p,
+section[data-testid="stSidebar"] div[role="radiogroup"] p {
+    color: #FFFFFF !important;
+}
+
+/* Sidebar inputs */
+section[data-testid="stSidebar"] input,
+section[data-testid="stSidebar"] div[data-baseweb="select"] > div {
+    background: #FFFFFF !important;
+    color: #111827 !important;
+    border-radius: 12px !important;
+}
+
+section[data-testid="stSidebar"] div[data-baseweb="select"] span {
+    color: #111827 !important;
+}
+
+/* Sidebar divider */
+section[data-testid="stSidebar"] hr {
+    border-color: #374151 !important;
+}
+
+/* Mobile */
 @media (max-width: 768px) {
     .hero-video-wrap {
         width: 100%;
@@ -341,7 +249,6 @@ div[data-testid="stAlert"] {
 
     .hero-video {
         height: 220px;
-        object-position: center;
     }
 
     .main-title {
@@ -356,8 +263,6 @@ div[data-testid="stAlert"] {
 
 </style>
 """, unsafe_allow_html=True)
-
-
 
 
 #                   ==============================
