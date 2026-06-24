@@ -93,17 +93,24 @@ section[data-testid="stSidebar"] span {
     color: #FFFFFF !important;
 }
 
-/* Sidebar inputs */
-section[data-testid="stSidebar"] input,
-section[data-testid="stSidebar"] div[data-baseweb="select"] > div {
-    background: #111827 !important;
-    color: #FFFFFF !important;
-    border: 1px solid #374151 !important;
-    border-radius: 12px !important;
+
+
+/* Sidebar / القائمة الجانبية */
+section[data-testid="stSidebar"] {
+    background: #1F2937 !important;
 }
 
-section[data-testid="stSidebar"] input::placeholder {
-    color: #9CA3AF !important;
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] span {
+    color: #FFFFFF !important;
+}
+
+section[data-testid="stSidebar"] hr {
+    border-color: #374151 !important;
 }
 
 /* Sidebar radio text */
