@@ -184,26 +184,38 @@ div.stButton > button:hover {
     object-position: center;
     display: block;
 }
-
+#-----
 /* Tabs */
-main button[data-baseweb="tab"] p {
+main button[data-baseweb="tab"],
+main button[data-baseweb="tab"] *,
+main div[data-baseweb="tab-list"] button,
+main div[data-baseweb="tab-list"] button * {
     color: #374151 !important;
     opacity: 1 !important;
     font-weight: 600 !important;
 }
 
-main button[data-baseweb="tab"][aria-selected="true"] p {
+main button[data-baseweb="tab"][aria-selected="true"],
+main button[data-baseweb="tab"][aria-selected="true"] *,
+main div[data-baseweb="tab-list"] button[aria-selected="true"],
+main div[data-baseweb="tab-list"] button[aria-selected="true"] * {
     color: #FF3D1A !important;
     font-weight: 700 !important;
 }
 
-main button[data-baseweb="tab"]:hover p {
+main button[data-baseweb="tab"]:hover,
+main button[data-baseweb="tab"]:hover *,
+main div[data-baseweb="tab-list"] button:hover,
+main div[data-baseweb="tab-list"] button:hover * {
     color: #1565F5 !important;
 }
 
 main div[data-baseweb="tab-highlight"] {
     background-color: #FF3D1A !important;
-}
+}            
+
+
+#----            
 
 /* Markdown Preview */
 main div[data-testid="stMarkdownContainer"] p,
