@@ -68,7 +68,12 @@ st.markdown("""
    خلفية التطبيق بالكامل
    ============================== */
 .stApp {
-    background: linear-gradient(135deg, #F8FAFC 0%, #EEF6FF 55%, #FFFFFF 100%);
+    background: radial-gradient(
+                    circle at top left,
+                    #15596A 0%,
+                    #0F263C 35%,
+                    #071729 100%
+                            );
 }
 
 
@@ -80,369 +85,668 @@ st.markdown("""
     text-align: center;
     font-size: 44px;
     font-weight: 800;
-    color: #1565F5;
+    color:#F1F3F4;
     margin-bottom: 6px;
 }
 
 .sub-title {
     text-align: center;
     font-size: 18px;
-    color: #4B5563;
+    color:#2BB3BC;
     margin-bottom: 35px;
 }
 
 .section-title {
     font-size: 34px;
     font-weight: 800;
-    color: #1565F5;
+    color: #F1F3F4;
     margin: 20px 0 28px 0;
 }
 
-
-/* ==============================
-   3) Cards
-   شكل الكروت داخل الداشبورد
-   ============================== */
-.card {
-    background: #FFFFFF;
-    padding: 26px;
-    border-radius: 22px;
-    box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
-    border: 1px solid #E5E7EB;
-}
-
-.card h3 {
-    color: #1565F5;
-}
-
-.card p {
-    color: #4B5563;
-}
-
-
-/* ==============================
+/* ==========================================================
    4) Main Form Labels
-   أسماء الخانات فوق Inputs في الصفحة الرئيسية
-   ============================== */
+   أسماء الحقول داخل الصفحة الرئيسية
+   ========================================================== */
+
 main div[data-testid="stWidgetLabel"] p {
-    color: #111827 !important;
+    color: #F8FAFC !important;
     font-weight: 700 !important;
     font-size: 15px !important;
 }
 
 
-/* ==============================
+/* ==========================================================
    5) Main Form Inputs
-   شكل خانات الإدخال في الصفحة الرئيسية
-   ============================== */
+   شكل جميع خانات الإدخال داخل الصفحة الرئيسية
+   ========================================================== */
+
 main .stTextInput input,
 main .stNumberInput input,
 main .stTextArea textarea,
 main div[data-baseweb="select"] > div {
-    background-color: #FFFFFF !important;
-    color: #111827 !important;
-    border: 1px solid #D1D5DB !important;
+
+    background: #16364D !important;
+
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+
+    border: 1px solid rgba(43,179,188,.20) !important;
+
     border-radius: 14px !important;
+
+    transition: all .25s ease;
+
 }
 
 
-/* Placeholder text
-   لون النص الافتراضي داخل الخانات */
+/* ==========================================================
+   Placeholder Text
+   لون النص الافتراضي داخل الخانات
+   ========================================================== */
+
 main .stTextInput input::placeholder,
 main .stTextArea textarea::placeholder {
-    color: #6B7280 !important;
+
+    color: #A8BCC9 !important;
     opacity: 1 !important;
+
 }
 
 
-/* Selectbox text
-   لون النص داخل الاختيارات */
-main div[data-baseweb="select"] span {
-    color: #111827 !important;
+/* ==========================================================
+   Selectbox Text
+   لون النص داخل الـ SelectBox
+   ========================================================== */
+
+main div[data-baseweb="select"] span,
+main div[data-baseweb="select"] div {
+
+    color: #FFFFFF !important;
+
 }
 
 
-/* Disabled inputs
-   شكل الخانات المقفولة مثل Target Country */
-main .stTextInput input:disabled {
-    background-color: #F3F4F6 !important;
-    color: #374151 !important;
-    -webkit-text-fill-color: #374151 !important;
+/* ==========================================================
+   Input Focus
+   تأثير عند الضغط على الخانات
+   ========================================================== */
+
+main .stTextInput input:focus,
+main .stNumberInput input:focus,
+main .stTextArea textarea:focus,
+main div[data-baseweb="select"] > div:focus-within {
+
+    border-color: #2BB3BC !important;
+
+    box-shadow: 0 0 0 3px rgba(43,179,188,.25);
+
+}
+
+
+/* ==========================================================
+   Disabled Inputs
+   شكل الخانات غير القابلة للتعديل
+   ========================================================== */
+
+main .stTextInput input:disabled,
+main .stNumberInput input:disabled {
+
+    background: #0F263C !important;
+
+    color: #8FA2AD !important;
+    -webkit-text-fill-color: #8FA2AD !important;
+
     opacity: 1 !important;
+
 }
 
 
-/* ==============================
+/* ==========================================================
    6) Main Buttons
-   شكل الأزرار الرئيسية مثل Generate Media Plan
-   ============================== */
+   الأزرار الرئيسية (Generate Report)
+   ========================================================== */
+
 div.stButton > button {
+
     background: linear-gradient(
         90deg,
-        #FF3D1A 0%,
-        #78C800 34%,
-        #1565F5 68%,
-        #FFC107 100%
+        #2BB3BC 0%,
+        #38C6D4 100%
     ) !important;
-    color: #FFFFFF !important;
+
+    color: #071729 !important;
+
     border: none !important;
+
     border-radius: 16px !important;
+
     padding: 15px 24px !important;
+
     font-weight: 800 !important;
-    box-shadow: 0 12px 28px rgba(21, 101, 245, 0.18);
+
+    transition: all .25s ease;
+
+    box-shadow: 0 10px 24px rgba(43,179,188,.25);
+
 }
 
 
-/* Button hover
-   شكل الزر عند الوقوف عليه */
+/* ==========================================================
+   Button Hover
+   شكل الزر عند مرور الماوس
+   ========================================================== */
+
 div.stButton > button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 16px 34px rgba(21, 101, 245, 0.24);
+
+    background: linear-gradient(
+        90deg,
+        #38C6D4 0%,
+        #52DCE5 100%
+    ) !important;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 14px 30px rgba(43,179,188,.35);
+
 }
 
 
-/* ==============================
+
+
+/* ==========================================================
    7) Hero Video
-   شكل فيديو الهيدر
-   ============================== */
+   إطار فيديو المقدمة الرئيسي
+   ========================================================== */
+
 .hero-video-wrap {
+
     width: min(100%, 1100px);
-    margin: 28px auto 26px auto;
-    border-radius: 30px;
+
+    margin: 30px auto;
+
     overflow: hidden;
-    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.16);
-    background: #FFFFFF;
-    border: 1px solid #E5E7EB;
+
+    border-radius: 22px;
+
+    background: #0F263C;
+
+    border: 1px solid rgba(43,179,188,.15);
+
+    box-shadow:
+        0 12px 30px rgba(7,23,41,.35),
+        0 0 30px rgba(43,179,188,.05);
+
 }
+
+
+/* ==========================================================
+   Hero Video
+   الفيديو نفسه
+   ========================================================== */
 
 .hero-video {
+
     width: 100%;
-    height: 430px;
+
+    height: 500px;
+
     object-fit: cover;
+
     object-position: center;
+
     display: block;
+
 }
 
-
-/* ==============================
+/* ==========================================================
    8) Tabs
    تبويبات عرض التقرير:
    Formatted Report / Raw Markdown / Download
-   ============================== */
+   ========================================================== */
+
+/* Normal tabs / التابات العادية */
 main button[data-baseweb="tab"],
 main button[data-baseweb="tab"] *,
 main div[data-baseweb="tab-list"] button,
 main div[data-baseweb="tab-list"] button * {
-    color: #374151 !important;
+    color: #A8BCC9 !important;
     opacity: 1 !important;
     font-weight: 600 !important;
+    transition: all .25s ease;
 }
 
-
-/* Active tab
-   التاب المختارة */
+/* Active tab / التاب المختارة */
 main button[data-baseweb="tab"][aria-selected="true"],
 main button[data-baseweb="tab"][aria-selected="true"] *,
 main div[data-baseweb="tab-list"] button[aria-selected="true"],
 main div[data-baseweb="tab-list"] button[aria-selected="true"] * {
-    color: #FF3D1A !important;
-    font-weight: 700 !important;
+    color: #2BB3BC !important;
+    font-weight: 800 !important;
 }
 
-
-/* Tab hover
-   شكل التاب عند الوقوف عليها */
+/* Hover / عند الوقوف على التاب */
 main button[data-baseweb="tab"]:hover,
 main button[data-baseweb="tab"]:hover *,
 main div[data-baseweb="tab-list"] button:hover,
 main div[data-baseweb="tab-list"] button:hover * {
-    color: #1565F5 !important;
+    color: #38C6D4 !important;
+    opacity: 1 !important;
 }
 
-
-/* Tab underline
-   الخط تحت التاب المختارة */
+/* Tab underline / الخط تحت التاب المختارة */
 main div[data-baseweb="tab-highlight"] {
-    background-color: #FF3D1A !important;
+    background-color: #2BB3BC !important;
+    height: 3px !important;
+    border-radius: 20px !important;
 }
 
 
-/* ==============================
+/* ==========================================================
    9) Markdown Preview
-   تنسيق تبويب Raw Markdown فقط
-   ============================== */
+   تنسيق تبويب Raw Markdown
+   ========================================================== */
+
+/* الحاوية الرئيسية للـ Markdown */
+.markdown-preview {
+
+    background: #0F263C;
+
+    border: 1px solid rgba(43,179,188,.15);
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 10px 28px rgba(7,23,41,.25);
+
+}
+
+
+/* جميع النصوص */
 .markdown-preview,
 .markdown-preview * {
-    color: #111827 !important;
+
+    color: #F8FAFC !important;
+
 }
 
+
+/* العناوين */
 .markdown-preview h1,
 .markdown-preview h2,
 .markdown-preview h3 {
-    color: #1565F5 !important;
+
+    color: #2BB3BC !important;
+
 }
 
+
+/* الفقرات والقوائم */
+.markdown-preview p,
+.markdown-preview li {
+
+    color: #D6E3EA !important;
+
+    line-height: 1.9;
+
+}
+
+
+/* الجداول */
 .markdown-preview table {
+
     width: 100%;
+
     border-collapse: collapse;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
 }
 
+
+/* Header الجدول */
 .markdown-preview th {
-    background: #1565F5 !important;
-    color: #FFFFFF !important;
-    padding: 10px;
+
+    background: #2BB3BC !important;
+
+    color: #071729 !important;
+
+    padding: 12px;
+
+    font-weight: 700;
+
 }
 
+
+/* خلايا الجدول */
 .markdown-preview td {
-    color: #111827 !important;
-    padding: 10px;
+
+    background: rgba(255,255,255,.03);
+
+    color: #F8FAFC !important;
+
+    padding: 12px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
 }
 
 
-/* ==============================
+/* صفوف الجدول */
+.markdown-preview tr:nth-child(even) td {
+
+    background: rgba(255,255,255,.05);
+
+}
+
+
+
+/* ==========================================================
    10) Alerts
-   شكل رسائل success / warning / error
-   ============================== */
-div[data-testid="stAlert"] {
-    border-radius: 16px;
+   رسائل Success / Warning / Error / Info
+   ========================================================== */
+
+div[data-testid="stAlert"]{
+
+    border-radius:18px !important;
+
+    border:1px solid rgba(43,179,188,.15) !important;
+
+    box-shadow:
+        0 8px 22px rgba(7,23,41,.12);
+
+    padding:18px !important;
+
 }
 
 
-/* ==============================
-   11) Sidebar
-   خلفية القائمة الجانبية
-   ============================== */
+/* ==========================================================
+   11) Sidebar Background
+   خلفية القائمة الجانبية بالكامل
+   ========================================================== */
+
 section[data-testid="stSidebar"] {
-    background: #1F2937 !important;
+    background: linear-gradient(
+        180deg,
+        #0F263C 0%,
+        #0A1D2E 45%,
+        #071729 100%
+    ) !important;
+
+    border-right: 1px solid rgba(43,179,188,.15);
 }
 
 
-/* Sidebar labels and titles
-   ألوان عناوين ونصوص السايدبار */
+/* ==========================================================
+   12) Sidebar Titles & Labels
+   عناوين وأسماء الحقول داخل الـ Sidebar
+   ========================================================== */
+
 section[data-testid="stSidebar"] h1,
 section[data-testid="stSidebar"] h2,
-section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] h3 {
+    color: #F8FAFC !important;
+    font-weight: 800 !important;
+}
+
 section[data-testid="stSidebar"] label,
 section[data-testid="stSidebar"] div[data-testid="stWidgetLabel"] p,
 section[data-testid="stSidebar"] div[role="radiogroup"] p {
+    color: #D6E3EA !important;
+    font-weight: 600 !important;
+}
+
+
+/* ==========================================================
+   13) Sidebar Inputs
+   خانات الإدخال داخل الـ Sidebar
+   ========================================================== */
+
+section[data-testid="stSidebar"] input,
+section[data-testid="stSidebar"] textarea,
+section[data-testid="stSidebar"] div[data-baseweb="select"] > div {
+    background: #16364D !important;
+
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+
+    border: 1px solid rgba(43,179,188,.22) !important;
+    border-radius: 14px !important;
+
+    transition: all .25s ease;
+}
+
+
+/* ==========================================================
+   14) Sidebar Placeholder
+   لون النص الافتراضي داخل الخانات
+   ========================================================== */
+
+section[data-testid="stSidebar"] input::placeholder,
+section[data-testid="stSidebar"] textarea::placeholder {
+    color: #A8BCC9 !important;
+    opacity: 1 !important;
+}
+
+
+/* ==========================================================
+   15) Sidebar Selectbox Text
+   لون النص داخل الـ SelectBox
+   ========================================================== */
+
+section[data-testid="stSidebar"] div[data-baseweb="select"] span,
+section[data-testid="stSidebar"] div[data-baseweb="select"] div {
     color: #FFFFFF !important;
 }
 
 
-/* Sidebar inputs
-   شكل خانات السايدبار */
-section[data-testid="stSidebar"] input,
-section[data-testid="stSidebar"] div[data-baseweb="select"] > div {
-    background: #FFFFFF !important;
-    color: #111827 !important;
-    border-radius: 12px !important;
+/* ==========================================================
+   16) Sidebar Focus Effect
+   تأثير عند الضغط على الخانات
+   ========================================================== */
+
+section[data-testid="stSidebar"] input:focus,
+section[data-testid="stSidebar"] textarea:focus,
+section[data-testid="stSidebar"] div[data-baseweb="select"] > div:focus-within {
+    border-color: #2BB3BC !important;
+    box-shadow: 0 0 0 3px rgba(43,179,188,.25) !important;
 }
 
 
-/* Sidebar selectbox text
-   لون النص داخل selectbox في السايدبار */
-section[data-testid="stSidebar"] div[data-baseweb="select"] span {
-    color: #111827 !important;
-}
+/* ==========================================================
+   17) Sidebar Divider
+   الخط الفاصل داخل الـ Sidebar
+   ========================================================== */
 
-
-/* Sidebar divider
-   الخط الفاصل داخل السايدبار */
 section[data-testid="stSidebar"] hr {
-    border-color: #374151 !important;
+    border-color: rgba(255,255,255,.08) !important;
 }
 
 
-/* ==============================
-   12) Spinner
-   رسالة التحميل أثناء توليد التقرير
-   ============================== */
-.stSpinner > div {
-    color: #1565F5 !important;
-    font-weight: 700 !important;
+/* ==========================================================
+   18) Sidebar Radio Buttons
+   أزرار اختيار الموديول
+   ========================================================== */
+
+section[data-testid="stSidebar"] div[role="radiogroup"] label {
+    color: #F8FAFC !important;
+    font-weight: 600 !important;
 }
 
-.stSpinner svg {
-    stroke: #1565F5 !important;
+section[data-testid="stSidebar"] div[role="radiogroup"] label:hover p {
+    color: #2BB3BC !important;
+}
+
+section[data-testid="stSidebar"] div[role="radiogroup"] input {
+    accent-color: #2BB3BC !important;
 }
 
 
-/* ==============================
+/* ==========================================================
+   19) Sidebar Color Pickers
+   مربعات اختيار الألوان
+   ========================================================== */
+
+section[data-testid="stSidebar"] input[type="color"] {
+    background: #16364D !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(43,179,188,.25) !important;
+}
+
+
+/* ==========================================================
+   20) Sidebar Expander
+   الـ Expander إذا استخدمته لاحقًا
+   ========================================================== */
+
+section[data-testid="stSidebar"] details {
+    background: rgba(255,255,255,.03);
+    border-radius: 12px;
+}
+
+
+/* ==========================================================
+   21) Spinner
+   Loading Indicator
+   ========================================================== */
+
+.stSpinner{
+
+    padding:18px 24px;
+
+    border-radius:16px;
+
+    background:rgba(15,38,60,.65);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(43,179,188,.15);
+
+}
+
+
+/* ==========================================================
    13) Mobile Responsive
-   تحسين العرض على الموبايل
-   ============================== */
+   تحسين عرض التطبيق على الشاشات الصغيرة
+   ========================================================== */
+
 @media (max-width: 768px) {
+
+    /* Main page padding
+       تقليل المسافات الجانبية داخل الصفحة الرئيسية */
+    main {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+
+    /* Sidebar mobile width
+       ضبط عرض القائمة الجانبية على الموبايل */
+    section[data-testid="stSidebar"] {
+        width: 82vw !important;
+        min-width: 82vw !important;
+        max-width: 82vw !important;
+        z-index: 999999 !important;
+    }
+
+
+    /* Sidebar inner container
+       ضبط عرض المحتوى الداخلي للسايدبار */
+    section[data-testid="stSidebar"] > div {
+        width: 82vw !important;
+    }
+
+
+    /* Hero video wrapper
+       ضبط صندوق فيديو الهيدر على الموبايل */
     .hero-video-wrap {
-        width: 100%;
-        border-radius: 18px;
-        margin: 15px auto 20px auto;
+        width: 100% !important;
+        border-radius: 18px !important;
+        margin: 15px auto 20px auto !important;
     }
 
+
+    /* Hero video
+       تقليل ارتفاع الفيديو على الموبايل */
     .hero-video {
-        height: 220px;
+        height: 220px !important;
     }
 
+
+    /* Main title
+       تصغير العنوان الرئيسي */
     .main-title {
-        font-size: 30px !important;
+        font-size: 20px !important;
+        line-height: 1.25 !important;
     }
 
+
+    /* Subtitle
+       تصغير النص أسفل العنوان */
     .sub-title {
         font-size: 14px !important;
-        padding: 0 12px;
+        line-height: 1.6 !important;
+        padding: 0 12px !important;
+    }
+
+
+    /* Section title
+       تصغير عنوان كل موديول */
+    .section-title {
+        font-size: 28px !important;
+        line-height: 1.3 !important;
+    }
+
+
+    /* Inputs and select boxes
+       تكبير الخانات قليلًا لتناسب اللمس */
+    main .stTextInput input,
+    main .stNumberInput input,
+    main .stTextArea textarea,
+    main div[data-baseweb="select"] > div {
+        min-height: 48px !important;
+        font-size: 15px !important;
+    }
+
+
+    /* Buttons
+       تحسين حجم الأزرار على الموبايل */
+    div.stButton > button {
+        min-height: 50px !important;
+        font-size: 15px !important;
+        border-radius: 14px !important;
+    }
+
+
+    /* Tabs
+       جعل تبويبات التقرير أوضح على الموبايل */
+    main button[data-baseweb="tab"],
+    main button[data-baseweb="tab"] * {
+        font-size: 14px !important;
+        white-space: nowrap !important;
+    }
+
+
+    /* Markdown preview
+       ضبط مساحة Raw Markdown على الموبايل */
+    .markdown-preview {
+        padding: 18px !important;
+        border-radius: 14px !important;
+        overflow-x: auto !important;
+    }
+
+
+    /* Tables
+       منع الجداول من كسر عرض الشاشة */
+    .markdown-preview table {
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
     }
 }
-
-
-/* ==============================
-   14) Final Main Labels Fix
-   إصلاح نهائي لأسماء الخانات في الصفحة الرئيسية
-   ============================== */
-main label,
-main div[data-testid="stWidgetLabel"],
-main div[data-testid="stWidgetLabel"] *,
-main [data-testid="stWidgetLabel"] p {
-    color: #111827 !important;
-    opacity: 1 !important;
-    font-weight: 700 !important;
-}
-
-
-/* ==============================
-   15) Final Main Inputs Fix
-   إصلاح نهائي لألوان النصوص داخل الخانات
-   ============================== */
-main input,
-main textarea {
-    background-color: #FFFFFF !important;
-    color: #111827 !important;
-    -webkit-text-fill-color: #111827 !important;
-}
-
-
-/* Disabled input final fix
-   إصلاح نهائي للخانات المقفولة */
-main input:disabled {
-    background-color: #F3F4F6 !important;
-    color: #374151 !important;
-    -webkit-text-fill-color: #374151 !important;
-}
-
-
-/* ==============================
-   16) Global Widget Label Test/Fix
-   يتحكم في أسماء كل الخانات في التطبيق والسايدبار
-   لو خليته أحمر، كل أسماء الخانات هتبقى أحمر
-   ============================== */
-[data-testid="stWidgetLabel"] {
-    color: #FF0000 !important;
-}
-
-[data-testid="stWidgetLabel"] * {
-    color: #FF0000 !important;
-    opacity: 1 !important;
-    font-weight: 700 !important;
-}
-
 </style>
 """, unsafe_allow_html=True)
 
@@ -587,7 +891,7 @@ elif module == "Media Plan":
 
     # Page title / عنوان الصفحة
     st.markdown(
-    '<div class="section-title">🎯 Media Plan Generator</div>',
+    '<div class="section-title"> Media Plan Generator</div>',
     unsafe_allow_html=True
 )
 
